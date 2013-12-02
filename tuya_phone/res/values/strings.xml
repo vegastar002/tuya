@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">兔牙电话</string>
+    <string name="tip">兔牙电话(推荐)</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="remote_call_failed">Failure calling remote service</string>
+    <string name="network_disconnet">网络已断开,请开启</string>
+    <string name="str_again_exit">再次按下退出</string>
+
+</resources>

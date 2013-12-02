@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <FrameLayout 
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" />
+        
+        <TabWidget 
+            android:id="@android:id/tabs"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0" />
+        
+        <RadioGroup 
+            android:id="@+id/main_radiogroup"
+            android:gravity="center_vertical"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="2dip"
+            android:paddingTop="8dp"
+            android:background="@drawable/mmfooter_bg"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content">
+			
+            <RadioButton 
+			    android:id="@+id/main_tab_dialhistory" 
+			    android:checked="true" 
+			    android:text="拨号" 
+			    android:drawableTop="@drawable/tab_dia_history"
+			    android:textColor="@drawable/tab_text"
+			    style="@style/MMTabButton" />	
+			<RadioButton 
+                android:id="@+id/main_tab_address" 
+                android:text="通讯录" 
+                android:drawableTop="@drawable/tab_address" 
+                android:textColor="@drawable/tab_text"
+                style="@style/MMTabButton" />
+			<RadioButton 
+		 	    android:id="@+id/main_tab_recharge" 
+		 	    android:text="充值" 
+		 	    android:drawableTop="@drawable/tab_cp"
+		 	    android:textColor="@drawable/tab_text" 
+		 	    style="@style/MMTabButton" />	 	
+		 	<RadioButton 
+		 	    android:id="@+id/main_tab_settings" 
+		 	    android:text="设置" 
+		 	    android:drawableTop="@drawable/tab_settings" 
+		 	    android:textColor="@drawable/tab_text"
+		 	    style="@style/MMTabButton" />            
+        </RadioGroup>
+    </LinearLayout>
+
+</TabHost>

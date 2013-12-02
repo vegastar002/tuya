@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<products>
+    <product subject="充值卡 10元卡"  body="10元充值卡" price="RMB:10" />
+    <product subject="充值卡 30元卡"  body="30元充值卡" price="RMB:30" />
+    <product subject="充值卡 50元卡"  body="充50送10" price="RMB:50" />
+    <product subject="充值卡 100元卡"  body="充100送30" price="RMB:100" />
+</products>

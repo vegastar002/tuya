@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#eee">
+    
+    <RelativeLayout 
+        android:id="@+id/media_layout"
+        android:layout_marginTop="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+        
+        <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:src="@drawable/mediabg" />
+    
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="2dp"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:background="@drawable/picture_emergency" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:clickable="false"
+        android:textColor="@android:color/black"/>
+        
+    </RelativeLayout>
+
+    
+
+    
+
+    <EditText
+        android:id="@+id/login_user_edit"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/media_layout"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/inputbox"
+        android:drawableLeft="@drawable/ren"
+        android:drawablePadding="10dp"
+        android:hint="请输入手机号"
+        android:text=""
+        android:maxLength="11"
+        android:inputType="number"
+        android:singleLine="true"
+        android:paddingLeft="10dp" />
+   
+
+    <EditText
+        android:id="@+id/login_passwd_edit"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/login_user_edit"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/inputbox"
+        android:drawableLeft="@drawable/suo"
+        android:drawablePadding="14dp"
+        android:inputType="numberPassword"
+        android:hint="请输入密码"
+        android:text=""
+        android:singleLine="true"
+        android:maxLength="6"
+        android:paddingLeft="10dp" >
+    </EditText>
+    
+    
+    
+    <Button
+        android:id="@+id/login_login_btn"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/login_passwd_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/btn_style_green"
+        android:text="登录"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+    
+    <Button
+        android:id="@+id/register"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/btn_style_white"
+        android:text="注册"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+</RelativeLayout>
