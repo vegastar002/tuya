@@ -206,7 +206,7 @@
             android:layout_margin="1dp"
             android:textSize="16sp"
             android:visibility="gone"
-            android:text="    e.拨通电话之前，需要向电信发送通话请求，需要消耗0.1K的数据流量。" />
+            android:text="    e.拨通电话之前，需要向电信发送通话请求，会使用0.1K的数据流量。" />
     </LinearLayout>
     
     

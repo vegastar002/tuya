@@ -41,7 +41,6 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 
 	TextView info, status;
 	Button cancel, remotedial, localdial;
-//	String hostAdd = "http://da.bigo.me/interface/call/mobile/13125019237/pwd/123456/phone/";
 	String number = "";
 	CApplication cApp;
 	Handler mHandler;
@@ -49,6 +48,8 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 	public final static String B_PHONE_STATE = TelephonyManager.ACTION_PHONE_STATE_CHANGED;
 	private OutgoingCallReceiver mBroadcastReceiver;
 	String account = "", password = "";
+	private SharedPreferences perference;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +155,8 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 		switch (view.getId()) {
 		case R.id.cancel:
 			finish();
+			android.os.Process.killProcess(android.os.Process.myPid());
+			System.exit(0);
 			break;
 			
 		case R.id.remotedial:
@@ -212,6 +215,12 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 			return;
 		}
 		
+		int bb = Integer.valueOf(perference.getString("balance", ""));
+		if ( bb == 0 ){
+			Toast.makeText(OutgoingActivity.this, "余额不足，请充值", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		cApp.inner = true;
 		status.setText("发送呼叫请求");
 		localdial.setVisibility(View.GONE);
@@ -233,7 +242,7 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 
 					if (httpResponse.getStatusLine().getStatusCode() == 200) {
 						String preTel = cApp.retrieveInputStream(httpResponse.getEntity());
-//						Log.i("", preTel);
+						Log.i("", preTel);
 						
 						Message msg = new Message();
 						if ( preTel.equals("{0}") ){

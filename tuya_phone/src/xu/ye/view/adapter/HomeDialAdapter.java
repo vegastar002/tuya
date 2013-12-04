@@ -6,14 +6,17 @@ import xu.ye.bean.CallLogBean;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pay.telcel.main.OutgoingActivity;
 import com.pay.telcel.main.R;
 
 public class HomeDialAdapter extends BaseAdapter {
@@ -23,7 +26,6 @@ public class HomeDialAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	
 	public HomeDialAdapter(Context context, List<CallLogBean> list) {
-
 		this.ctx = context;
 		this.list = list;
 		this.inflater = LayoutInflater.from(context);
@@ -50,7 +52,7 @@ public class HomeDialAdapter extends BaseAdapter {
 			holder.name = (TextView) convertView.findViewById(R.id.name);
 			holder.number = (TextView) convertView.findViewById(R.id.number);
 			holder.time = (TextView) convertView.findViewById(R.id.time);
-			holder.call_btn = (TextView) convertView.findViewById(R.id.call_btn);
+			holder.call_btn = (ImageButton) convertView.findViewById(R.id.call_btn);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -83,15 +85,18 @@ public class HomeDialAdapter extends BaseAdapter {
 		TextView name;
 		TextView number;
 		TextView time;
-		TextView call_btn;
+		ImageButton call_btn;
 	}
 	
 	private void addViewListener(View view, final CallLogBean clb, final int position){
 		view.setOnClickListener(new OnClickListener(){
 			public void onClick(View view) {
-				Uri uri = Uri.parse("tel:" + clb.getNumber());
-				Intent it = new Intent(Intent.ACTION_CALL, uri);
-				ctx.startActivity(it);
+				CallLogBean clb = list.get(position);
+				
+				Intent intentMainActivity = new Intent(ctx, OutgoingActivity.class);
+				intentMainActivity.putExtra("number", clb.getNumber());
+		        intentMainActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
+		        ctx.startActivity(intentMainActivity);
 			}
 		});
 	}

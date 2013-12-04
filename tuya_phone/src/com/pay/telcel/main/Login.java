@@ -76,12 +76,17 @@ public class Login extends Activity implements OnClickListener, Callback{
 		
 		SharedPreferences perference = getSharedPreferences("user_profile", Context.MODE_PRIVATE);
 		if ( !"".equals(perference.getString("account", "")) && !"".equals(perference.getString("password", "")) ){
-			//account和password匀不能为空
-			login_user_edit.setText(perference.getString("account", ""));
-			login_passwd_edit.setText(perference.getString("password", ""));
-			pDialog.show();
-			doLogin();
+			Intent mIntent = new Intent(Login.this, MainTabUI.class);
+			startActivity(mIntent);
+			finish();
 		}
+//		if ( !"".equals(perference.getString("account", "")) && !"".equals(perference.getString("password", "")) ){
+//			//account和password匀不能为空
+//			login_user_edit.setText(perference.getString("account", ""));
+//			login_passwd_edit.setText(perference.getString("password", ""));
+//			pDialog.show();
+//			doLogin();
+//		}
 		
 	}
 
@@ -98,6 +103,7 @@ public class Login extends Activity implements OnClickListener, Callback{
 				HttpPost httpRequest = new HttpPost(host);
 				List<BasicNameValuePair> Vaparams = new ArrayList<BasicNameValuePair>();
 				
+				//验证账户密码是否正确
 				try {
 					httpRequest.setEntity(new UrlEncodedFormEntity(Vaparams, HTTP.UTF_8));
 					HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);

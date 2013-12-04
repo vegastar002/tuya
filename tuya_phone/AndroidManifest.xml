@@ -23,6 +23,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
     <application
         android:allowBackup="true"
@@ -87,9 +89,50 @@
             android:screenOrientation="portrait" >
         </activity>
         
+        <activity
+            android:name="com.pay.telcel.main.HomeContactActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
+            android:name="com.pay.telcel.main.SettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        <activity
+            android:name="com.pay.telcel.main.Address_KaMi"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        
+        <activity
+            android:name="com.pay.telcel.main.AboutActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        
+        <activity
+            android:name="com.pay.telcel.main.PayByAlipay"
+            android:screenOrientation="portrait" >
+        </activity>
+        
         
         <activity
             android:name="com.pay.telcel.main.MainTabUI"
+            android:windowSoftInputMode="stateHidden" 
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
+            android:name="com.pay.telcel.main.RechargeSelect"
+            android:windowSoftInputMode="stateHidden" 
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity
+            android:name="com.pay.telcel.main.FeedbackActivity"
             android:windowSoftInputMode="stateHidden" 
             android:screenOrientation="portrait" >
         </activity>

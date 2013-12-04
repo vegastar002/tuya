@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:id="@+id/dialog_comm"
+    >
+
+    <EditText
+        android:id="@+id/cardID"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/inputbox"
+        android:drawableLeft="@drawable/ren"
+        android:drawablePadding="15dp"
+        android:paddingLeft="10dp"
+        android:hint="卡号"
+        android:maxLength="8"
+        android:inputType="number"
+        android:singleLine="true"
+        />
+    
+    
+    <EditText
+        android:id="@+id/cardPW"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/inputbox"
+        android:drawableLeft="@drawable/suo"
+        android:drawablePadding="15dp"
+        android:paddingLeft="10dp"
+        android:inputType="number"
+        android:hint="密码"
+        android:singleLine="true"
+        android:maxLength="6"
+        >
+    </EditText>
+    
+    
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_dialog_special_blue"
+        android:text="提交"
+        android:visibility="visible"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
+    
+    
+    
+</LinearLayout>

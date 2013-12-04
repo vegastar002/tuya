@@ -24,7 +24,7 @@
         android:layout_below="@+id/alpha"
         android:layout_marginBottom="3dip"
         android:layout_marginTop="3dip"
-        android:src="@drawable/widget_contact_pressed" />
+        android:src="@drawable/app_panel_friendcard_icon2" />
 
     <TextView
         android:id="@+id/name"

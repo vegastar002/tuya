@@ -9,7 +9,7 @@ import android.app.Activity;
 import android.util.Log;
 
 public class Result extends Activity {
-	private static final Map<String, String> sError;
+	public static final Map<String, String> sError;
 
 	public static String sResult;
 
@@ -99,7 +99,7 @@ public class Result extends Activity {
 		return json;
 	}
 
-	private static String getContent(String src, String startTag, String endTag) {
+	public static String getContent(String src, String startTag, String endTag) {
 		String content = src;
 		int start = src.indexOf(startTag);
 		start += startTag.length();

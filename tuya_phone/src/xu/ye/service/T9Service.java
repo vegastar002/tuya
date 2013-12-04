@@ -37,8 +37,6 @@ public class T9Service extends Service {
 	}
 
 	public int onStartCommand(Intent intent, int flags, int startId) {
-
-		System.out.println("T9Service-begin");
 		asyncQuery = new MyAsyncQueryHandler(getContentResolver());
 		initSQL();
 
