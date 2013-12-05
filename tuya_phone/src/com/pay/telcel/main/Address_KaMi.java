@@ -107,6 +107,7 @@ public class Address_KaMi extends Activity implements OnClickListener, Callback{
 		webview2 = (WebView) addressView.findViewById(R.id.webview2);
 		WebSettings webSettings = webview2.getSettings();
 		webSettings.setDefaultTextEncodingName("utf-8");
+		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
 		webview2.loadUrl("http://oss.aliyuncs.com/tuya/address.html");
 		
 	}
