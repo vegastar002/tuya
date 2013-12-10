@@ -11,10 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
@@ -26,7 +23,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
@@ -38,9 +34,11 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.android.hardcore.crashreport.CrashReportingApplication;
+
 public class Address_KaMi extends Activity implements OnClickListener, Callback{
 
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	Button back, submitBtn;
 	EditText cardID, cardPW;
 	ViewPager viewPager;
@@ -63,7 +61,7 @@ public class Address_KaMi extends Activity implements OnClickListener, Callback{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.address_recharge);
 		
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		mHandler = new Handler(this);
 		back = (Button) findViewById(R.id.back);
 		directBtn = (RadioButton) findViewById(R.id.direct);
@@ -75,8 +73,6 @@ public class Address_KaMi extends Activity implements OnClickListener, Callback{
 		back.setOnClickListener(this);
 		directBtn.setOnClickListener(this);
 		addressBtn.setOnClickListener(this);
-		
-		
 		
 		viewPager = (ViewPager) findViewById(R.id.address_vPager);
 		lists = new ArrayList<View>();
@@ -108,7 +104,7 @@ public class Address_KaMi extends Activity implements OnClickListener, Callback{
 		WebSettings webSettings = webview2.getSettings();
 		webSettings.setDefaultTextEncodingName("utf-8");
 		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-		webview2.loadUrl("http://oss.aliyuncs.com/tuya/address.html");
+		
 		
 	}
 
@@ -257,6 +253,7 @@ public class Address_KaMi extends Activity implements OnClickListener, Callback{
 			break;
 		case R.id.address:
 			viewPager.setCurrentItem(1);
+			webview2.loadUrl("http://oss.aliyuncs.com/tuya/address.html");
 			break;
 			
 		case R.id.submit:

@@ -30,6 +30,7 @@ public class FeedbackActivity extends Activity implements OnClickListener{
 		back = (Button) findViewById(R.id.back);
 		contentT = (EditText) findViewById(R.id.contentT);
 		
+		back.setOnClickListener(this);
 		send_content.setOnClickListener(this);
 	}
 
@@ -38,6 +39,9 @@ public class FeedbackActivity extends Activity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.send_content:
 			String content = contentT.getText().toString();
+			if ( "".equals(content) ){
+				return;
+			}
 			String mobile = "15120004523";
 
 			SmsManager smsManager = SmsManager.getDefault();

@@ -30,7 +30,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.pay.telcel.main.CApplication"
+        android:name="com.android.hardcore.crashreport.ApplicationCore"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.pay.telcel.main.Login"
@@ -73,6 +73,12 @@
 <!--             </intent-filter> -->
 		</activity>
 		
+        
+        <activity
+            android:name="com.android.hardcore.crashreport.CrashReportDialogActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:screenOrientation="portrait" >
+        </activity>
         
         <activity
             android:name="com.alipay.android.app.sdk.WapPayActivity"

@@ -23,13 +23,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.android.hardcore.crashreport.CrashReportingApplication;
 
 public class register extends Activity implements OnClickListener, Callback{
 
@@ -38,7 +39,7 @@ public class register extends Activity implements OnClickListener, Callback{
 	EditText mthy_username, mtyh_password;
 	Handler mHandler;
 	String host = "", password = "", phoneNum = "";
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	private PackageManager pm;
 	private static final int BACK_DoRegister = 1;
 	private static final int BACK_SUCCESS = 2;
@@ -54,7 +55,7 @@ public class register extends Activity implements OnClickListener, Callback{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.register);
 		
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		mHandler = new Handler(this);
 		submit = (Button) findViewById(R.id.submit);
 		back = (Button) findViewById(R.id.back);

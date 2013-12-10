@@ -45,7 +45,6 @@ import android.os.Message;
 import android.provider.CallLog;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -59,6 +58,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+
+import com.android.hardcore.crashreport.CrashReportingApplication;
 
 public class HomeDialActivity extends Activity implements OnClickListener , Callback{
 	
@@ -76,7 +77,7 @@ public class HomeDialActivity extends Activity implements OnClickListener , Call
 	private Button delete;
 	private AudioManager am = null;
 	
-	private CApplication application;
+	private CrashReportingApplication application;
 	private ListView listView;
 	private T9Adapter t9Adapter;
 	private Handler mHandler;
@@ -116,7 +117,7 @@ public class HomeDialActivity extends Activity implements OnClickListener , Call
 		
 		registerBoradcastReceiver();
 		mHandler = new Handler(HomeDialActivity.this);
-		application = (CApplication)getApplication();
+		application = (CrashReportingApplication)getApplication();
 		listView = (ListView) findViewById(R.id.contact_list);
 		
 		bohaopan = (LinearLayout) findViewById(R.id.bohaopan);
@@ -246,9 +247,9 @@ public class HomeDialActivity extends Activity implements OnClickListener , Call
 	
 	
 	@Override
-	protected void onStop() {
+	protected void onDestroy() {
 		// TODO Auto-generated method stub
-		super.onStop();
+		super.onDestroy();
 		unregisterReceiver(mBroadcastReceiver);
 	}
 

@@ -2,7 +2,6 @@ package com.pay.telcel.main;
 
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,7 +26,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.DialogInterface.OnKeyListener;
 import android.content.SharedPreferences.Editor;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
@@ -35,16 +33,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +49,7 @@ import com.alipay.android.app.sdk.AliPay;
 import com.alipay.android.msp.demo.Keys;
 import com.alipay.android.msp.demo.Result;
 import com.alipay.android.msp.demo.Rsa;
+import com.android.hardcore.crashreport.CrashReportingApplication;
 
 public class MainActivity extends Activity implements OnClickListener{
 
@@ -65,7 +62,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	private static final int BACK_Update_Balance = 6;
 	public Button register;
 	public ImageView balance_fresh;
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	ProgressDialog pDialog;
 	TextView account, balance;
 	String regPhoneNumber = "";
@@ -88,7 +85,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		recharge_10 = (RelativeLayout) findViewById(R.id.recharge_10);
 		recharge_30 = (RelativeLayout) findViewById(R.id.recharge_30);
 		recharge_50 = (RelativeLayout) findViewById(R.id.recharge_50);

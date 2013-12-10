@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,6 +21,8 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.Toast;
 
+import com.android.hardcore.crashreport.CrashReportingApplication;
+
 public class MainTabUI extends TabActivity implements Callback{
 	
 	private TabHost mTabHost;
@@ -30,7 +31,7 @@ public class MainTabUI extends TabActivity implements Callback{
 	private static final int MILLISECOND_TO_SECOND = 1000;
 	private boolean mIsExit;
 	private static long sFirstTimePressBackBtn;
-	public CApplication mApp;
+	public CrashReportingApplication mApp;
 	public RadioButton main_tab_dialhistory;
 	public String mTextviewArray[] = {"呼叫", "联系人", "充值", "设置"};
 	public int dial_toggle = 0;
@@ -46,7 +47,7 @@ public class MainTabUI extends TabActivity implements Callback{
 		setContentView(R.layout.tab_main_activity);
 		
 		registerBoradcastReceiver();
-		mApp = (CApplication) getApplication();
+		mApp = (CrashReportingApplication) getApplication();
 		mHandler = new Handler(MainTabUI.this);
         init_view();
 	}

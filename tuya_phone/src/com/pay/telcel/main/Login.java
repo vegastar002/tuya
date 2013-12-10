@@ -3,7 +3,6 @@ package com.pay.telcel.main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -24,8 +23,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
-import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -35,12 +34,14 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import com.android.hardcore.crashreport.CrashReportingApplication;
+
 public class Login extends Activity implements OnClickListener, Callback{
 
 	Button register, login_login_btn;
 	EditText login_user_edit, login_passwd_edit;
 	Handler mHandler;
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	ProgressDialog pDialog;
 	String host = "", password = "", phoneNum = "";
 	private static final int BACK_CHECK_LOGIN = 1;
@@ -61,7 +62,7 @@ public class Login extends Activity implements OnClickListener, Callback{
 		setContentView(R.layout.loginnew2);
 		
 		mHandler = new Handler(this);
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		timer = new Timer(true);
 		register = (Button) findViewById(R.id.register);
 		login_login_btn = (Button) findViewById(R.id.login_login_btn);
@@ -91,6 +92,18 @@ public class Login extends Activity implements OnClickListener, Callback{
 	}
 
 	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if ( keyCode == KeyEvent.KEYCODE_BACK){
+			finish();
+			android.os.Process.killProcess(android.os.Process.myPid());
+			System.exit(0);
+		}
+		
+		return super.onKeyDown(keyCode, event);
+	}
+
+
 	public void doLogin(){
 		phoneNum = login_user_edit.getText().toString();
 		password = login_passwd_edit.getText().toString();

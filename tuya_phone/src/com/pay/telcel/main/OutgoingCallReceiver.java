@@ -2,23 +2,23 @@ package com.pay.telcel.main;
 
 import java.lang.reflect.Method;
 
-import com.android.internal.telephony.ITelephony;
-
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.os.RemoteException;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
+
+import com.android.hardcore.crashreport.CrashReportingApplication;
+import com.android.internal.telephony.ITelephony;
 
 public class OutgoingCallReceiver extends BroadcastReceiver {
 
 	private String incoming_number = "";
 	private ITelephony iTelephony = null;
-	private CApplication cAPP;
+	private CrashReportingApplication cAPP;
 	private AudioManager mAudioManager;
 	
 	@Override
@@ -26,7 +26,7 @@ public class OutgoingCallReceiver extends BroadcastReceiver {
 //		String number = getResultData();
 //		Log.i("", "拨打电话: "+ number);
         
-		cAPP = (CApplication) context.getApplicationContext();
+		cAPP = (CrashReportingApplication) context.getApplicationContext();
 		mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 		
 		if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {

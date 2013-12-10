@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="crash_report_btn_report">Report</string>
+    <string name="crash_report_btn_exit">Exit</string>
+    <string name="crash_report_email_subject" formatted="false">%s Crash Report %s</string>
+    <string name="crash_report_email_text">Please write your comment below :\n</string>
+    <string name="crash_report_dialog_title">Application has crashed</string>
+    <string name="crash_report_dialog_text">程序出现一个未知的错误，请按\'Report\'按钮发送错误信息，以帮忙我们修正它。</string>
+    <string name="report_email">hust_mse@163.com</string>
+
+</resources>

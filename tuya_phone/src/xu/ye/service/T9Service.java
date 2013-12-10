@@ -3,9 +3,6 @@ package xu.ye.service;
 import java.util.ArrayList;
 
 import xu.ye.bean.ContactBean;
-
-import com.pay.telcel.main.CApplication;
-
 import android.app.Service;
 import android.content.AsyncQueryHandler;
 import android.content.ContentResolver;
@@ -17,6 +14,8 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.provider.ContactsContract;
+
+import com.android.hardcore.crashreport.CrashReportingApplication;
 
 public class T9Service extends Service {
 
@@ -83,7 +82,7 @@ public class T9Service extends Service {
 				case MAsyncTask.DOWNLOAD_END_MESSAGE:
 					Bundle bundle1 = msg.getData();
 					ArrayList<ContactBean> list = (ArrayList<ContactBean>) bundle1.get("完成");
-					CApplication ma = (CApplication) getApplication();
+					CrashReportingApplication ma = (CrashReportingApplication) getApplication();
 //					System.out.println(list.size());
 					ma.setContactBeanList(list);
 //					for(ContactInfo ci : list){

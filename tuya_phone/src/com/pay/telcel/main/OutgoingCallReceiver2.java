@@ -11,17 +11,18 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import com.android.hardcore.crashreport.CrashReportingApplication;
 import com.android.internal.telephony.ITelephony;
 
 public class OutgoingCallReceiver2 extends BroadcastReceiver {
 
 	private ITelephony iTelephony = null;
-	private CApplication cAPP;
+	private CrashReportingApplication cAPP;
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		String action = intent.getAction();
-		cAPP = (CApplication) context.getApplicationContext();
+		cAPP = (CrashReportingApplication) context.getApplicationContext();
 		
 		//呼入电话  
         if(action.equals(OutgoingActivity.B_PHONE_STATE)){

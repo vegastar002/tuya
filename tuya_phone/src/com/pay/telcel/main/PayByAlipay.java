@@ -17,26 +17,24 @@ import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import com.alipay.android.app.sdk.AliPay;
-import com.alipay.android.msp.demo.ExternalPartner;
-import com.alipay.android.msp.demo.Keys;
-import com.alipay.android.msp.demo.Result;
-import com.alipay.android.msp.demo.Rsa;
-import com.pay.telcel.main.MainActivity.Product;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.alipay.android.app.sdk.AliPay;
+import com.alipay.android.msp.demo.Keys;
+import com.alipay.android.msp.demo.Result;
+import com.alipay.android.msp.demo.Rsa;
+import com.android.hardcore.crashreport.CrashReportingApplication;
 
 public class PayByAlipay extends Activity implements OnClickListener{
 
@@ -57,7 +55,7 @@ public class PayByAlipay extends Activity implements OnClickListener{
 	String num = "";
 	ProgressDialog pDialog;
 	
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	Button back;
 	
 	@Override
@@ -70,7 +68,7 @@ public class PayByAlipay extends Activity implements OnClickListener{
 		back = (Button) findViewById(R.id.back);
 		back.setOnClickListener(this);
 		
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		recharge_10 = (RelativeLayout) findViewById(R.id.recharge_10);
 		recharge_30 = (RelativeLayout) findViewById(R.id.recharge_30);
 		recharge_50 = (RelativeLayout) findViewById(R.id.recharge_50);

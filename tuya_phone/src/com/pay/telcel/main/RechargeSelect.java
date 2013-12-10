@@ -34,13 +34,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.hardcore.crashreport.CrashReportingApplication;
+
 public class RechargeSelect extends Activity implements OnClickListener, Callback{
 
 	public RelativeLayout way_pay_layout_direct, way_pay_layout_kami, balance_layout;
 	private SharedPreferences perference;
 	public TextView account, balanceTV;
 	public String accountInit = "", balance="", host="";
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	Handler mHandler;
 	final int Msg_Back_Success = 1;
 	final int Msg_Back_Failure = 2;
@@ -55,7 +57,7 @@ public class RechargeSelect extends Activity implements OnClickListener, Callbac
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.recharge_select);
 		
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		mHandler = new Handler(this);
 		perference = getSharedPreferences("user_profile", Context.MODE_PRIVATE);
 		accountInit = perference.getString("account", "");

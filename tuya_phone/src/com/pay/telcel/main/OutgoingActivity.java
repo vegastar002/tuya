@@ -1,12 +1,8 @@
 package com.pay.telcel.main;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -26,7 +22,6 @@ import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.provider.ContactsContract;
-import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -37,12 +32,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.hardcore.crashreport.CrashReportingApplication;
+
 public class OutgoingActivity extends Activity implements OnClickListener, Callback{
 
 	TextView info, status;
 	Button cancel, remotedial, localdial;
 	String number = "";
-	CApplication cApp;
+	CrashReportingApplication cApp;
 	Handler mHandler;
 	ProgressBar pbar1;
 	public final static String B_PHONE_STATE = TelephonyManager.ACTION_PHONE_STATE_CHANGED;
@@ -71,7 +68,7 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 		localdial.setOnClickListener(this);
 		
 		mHandler = new Handler(this);
-		cApp = (CApplication) getApplication();
+		cApp = (CrashReportingApplication) getApplication();
 		number = getIntent().getStringExtra("number");
 		String contact = getPeople(number);
 		if ( !"".equals(contact) ){
@@ -215,8 +212,10 @@ public class OutgoingActivity extends Activity implements OnClickListener, Callb
 			return;
 		}
 		
-		int bb = Integer.valueOf(perference.getString("balance", ""));
-		if ( bb == 0 ){
+		String ss = perference.getString("balance", "");
+		Float fl = Float.valueOf(ss);
+		
+		if ( fl == 0 ){
 			Toast.makeText(OutgoingActivity.this, "余额不足，请充值", Toast.LENGTH_SHORT).show();
 			return;
 		}
